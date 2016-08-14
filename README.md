@@ -1,7 +1,13 @@
 # raspberrypi-images
 Base Raspberry Pi images
 
-## Creating a new base image
+## Creating a new base images
+
+TL;DR–From within a fresh Raspian install, run the [user data script]. Then shutdown and image the disk.
+
+```
+curl -SLs https://raw.githubusercontent.com/Mystopia/raspberrypi-images/master/scripts/user-data.sh | sudo bash
+```
 
 Create a fresh and up-to-date [Raspian] + [Adafruit Occidentalis]. The system is hostname and WiFi configurable. Simply insert your disk into a card reader and edit `occidentalis.txt` accordingly.
 
@@ -12,7 +18,7 @@ Note that the plain shell prefix `$` denotes the host.
   ```
   $ dd if=2016-05-27-raspbian-jessie-lite.img of=/dev/rdiskX
   ```
-  
+
   1. Once completed, safely eject and remove the disk.
 1. Using the fresh disk we just created, boot the pi with a wired internet connection.
 1. SSH into the pi `ssh pi@xxx.xxx.xxx.xxx`
@@ -21,7 +27,7 @@ Note that the plain shell prefix `$` denotes the host.
   ```
   $ ssh-copy-id pi@xxx.xxx.xxx.xxx
   ```
-  
+
 1. Run our [user data script].
   ```
   pi@raspberrypi:~ $ curl -SLs https://raw.githubusercontent.com/Mystopia/raspberrypi-images/master/scripts/user-data.sh | sudo bash
@@ -34,7 +40,7 @@ Note that the plain shell prefix `$` denotes the host.
   ```
   $ sudo dd bs=1m if=/dev/rdiskX | gzip > raspberrypi.img.gz
   ```
-  
+
   1. Test the image by restoring it to a different disk
   ```
   $ gzip -dc raspberrypi.img.gz | sudo dd bs=1m of=/dev/rdiskX
