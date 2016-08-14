@@ -12,6 +12,7 @@ Note that the plain shell prefix `$` denotes the host.
   ```
   $ dd if=2016-05-27-raspbian-jessie-lite.img of=/dev/rdiskX
   ```
+  
   1. Once completed, safely eject and remove the disk.
 1. Using the fresh disk we just created, boot the pi with a wired internet connection.
 1. SSH into the pi `ssh pi@xxx.xxx.xxx.xxx`
