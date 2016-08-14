@@ -3,12 +3,15 @@ Base Raspberry Pi images
 
 ## Creating a new base images
 
-TL;DR–From within a fresh Raspian install, run the [user data script]. Then shutdown and image the disk.
+### TL;DR
+
+From within a fresh Raspian install, run the [user data script]. Then shutdown and image the disk.
 
 ```
 curl -SLs https://raw.githubusercontent.com/Mystopia/raspberrypi-images/master/scripts/user-data.sh | sudo bash
 ```
 
+### Guided
 Create a fresh and up-to-date [Raspian] + [Adafruit Occidentalis]. The system is hostname and WiFi configurable. Simply insert your disk into a card reader and edit `occidentalis.txt` accordingly.
 
 Note that the plain shell prefix `$` denotes the host.
