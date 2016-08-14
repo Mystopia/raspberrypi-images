@@ -9,9 +9,9 @@ Note that the plain shell prefix `$` denotes the host.
 
 1. Grab [Raspian Jessie Lite] to use as our base image.
 1. Write the image to disk (might need `sudo`)
-```
-$ dd if=2016-05-27-raspbian-jessie-lite.img of=/dev/rdiskX
-```
+  ```
+  $ dd if=2016-05-27-raspbian-jessie-lite.img of=/dev/rdiskX
+  ```
   1. Once completed, safely eject and remove the disk.
 1. Using the fresh disk we just created, boot the pi with a wired internet connection.
 1. SSH into the pi `ssh pi@xxx.xxx.xxx.xxx`
@@ -20,10 +20,12 @@ $ dd if=2016-05-27-raspbian-jessie-lite.img of=/dev/rdiskX
   ```
   $ ssh-copy-id pi@xxx.xxx.xxx.xxx
   ```
-1. Run our [user data script] which installs.
-```
-pi@raspberrypi:~ $ curl -SLs https://raw.githubusercontent.com/Mystopia/raspberrypi-images/master/scripts/user-data.sh | sudo bash
-```
+  
+1. Run our [user data script].
+  ```
+  pi@raspberrypi:~ $ curl -SLs https://raw.githubusercontent.com/Mystopia/raspberrypi-images/master/scripts/user-data.sh | sudo bash
+  ```
+
 1. Create the disk image using a card reader
   1. Shutdown the pi with `sudo shutdown -h now`
   1. Insert the disk into the host's card reader
@@ -31,6 +33,7 @@ pi@raspberrypi:~ $ curl -SLs https://raw.githubusercontent.com/Mystopia/raspberr
   ```
   $ sudo dd bs=1m if=/dev/rdiskX | gzip > raspberrypi.img.gz
   ```
+  
   1. Test the image by restoring it to a different disk
   ```
   $ gzip -dc raspberrypi.img.gz | sudo dd bs=1m of=/dev/rdiskX
